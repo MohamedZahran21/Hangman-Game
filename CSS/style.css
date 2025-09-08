@@ -1,3 +1,239 @@
-.btn{
-    margin-left: 25px;
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.container {
+    margin: 20px auto;
+    width: 1000px;
+}
+
+.row {
+    display: flex;
+}
+
+hr {
+    border: 1px solid #eee;
+}
+
+.hangman-drawing {
+    flex: 1;
+    background-color: #f8f8f8;
+    padding: 20px;
+    height: 324px;
+}
+
+.hangman-drawing .the-drawing {
+    width: 60px;
+    height: 280px;
+    border-bottom: 4px solid #222;
+    position: relative;
+    margin: auto;
+    left: -60px;
+    display: none;
+}
+
+.hangman-drawing .the-stand {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #222;
+    height: 100%;
+    left: 50%;
+    margin-left: -2px;
+    display: none;
+}
+
+.hangman-drawing .the-hang {
+    display: none;
+}
+
+.hangman-drawing .the-hang:before {
+    content: '';
+    position: absolute;
+    height: 4px;
+    background-color: #222;
+    width: 100px;
+    left: 30px;
+}
+
+.hangman-drawing .the-hang:after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 30px;
+    background-color: #222;
+    left: 130px;
+}
+
+.hangman-drawing .the-rope {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: absolute;
+    top: 30px;
+    left: 95px;
+    border: 4px dashed #222;
+    display: none;
+}
+
+.hangman-drawing .the-man .head {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 4px solid #222;
+    position: absolute;
+    left: 105px;
+    top: 40px;
+    display: none;
+}
+
+.hangman-drawing .the-man .body {
+    position: absolute;
+    background-color: #222;
+    width: 4px;
+    height: 110px;
+    top: 90px;
+    left: 130px;
+    display: none;
+}
+
+.hangman-drawing .the-man .hands {
+    display: none;
+}
+
+.hangman-drawing .the-man .hands:before {
+    content: '';
+    width: 50px;
+    position: absolute;
+    height: 4px;
+    background-color: #222;
+    left: 85px;
+    top: 110px;
+    transform: rotate(30deg);
+}
+
+.hangman-drawing .the-man .hands:after {
+    content: '';
+    width: 50px;
+    position: absolute;
+    height: 4px;
+    background-color: #222;
+    left: 130px;
+    top: 110px;
+    transform: rotate(-30deg);
+}
+
+.hangman-drawing .the-man .legs {
+    display: none;
+}
+
+.hangman-drawing .the-man .legs:before {
+    content: '';
+    width: 50px;
+    position: absolute;
+    height: 4px;
+    background-color: #222;
+    left: 85px;
+    top: 209px;
+    transform: rotate(-30deg);
+}
+
+.hangman-drawing .the-man .legs:after {
+    content: '';
+    width: 50px;
+    position: absolute;
+    height: 4px;
+    background-color: #222;
+    left: 130px;
+    top: 209px;
+    transform: rotate(30deg);
+}
+
+.hangman-drawing.wrong-1 .the-drawing {
+    display: block;
+}
+
+.hangman-drawing.wrong-2 .the-stand {
+    display: block;
+}
+
+.hangman-drawing.wrong-3 .the-hang {
+    display: block;
+}
+
+.hangman-drawing.wrong-4 .the-rope {
+    display: block;
+}
+
+.hangman-drawing.wrong-5 .head {
+    display: block;
+}
+
+.hangman-drawing.wrong-6 .body {
+    display: block;
+}
+
+.hangman-drawing.wrong-7 .hands {
+    display: block;
+}
+
+.hangman-drawing.wrong-8 .legs {
+    display: block;
+}
+
+.letters {
+    flex: 1;
+    padding: 15px;
+    text-align: center;
+}
+.letters.finished{
+    pointer-events: none;
+}
+
+.letters .letter-box {
+    width: 55px;
+    height: 55px;
+    display: inline-block;
+    background: #009688;
+    color: #FFf;
+    font-size: 24px;
+    margin-right: 10px;
+    line-height: 55px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.letters .letter-box.clicked {
+    background-color: #222;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.letters-guess {
+    margin: 10px auto;
+    background-color: #f8f8f8;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 104px;
+}
+
+.letters-guess span {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 60px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #fdfdfd;
+    border-bottom: 3px solid #222;
+    transition: .3s;
 }
